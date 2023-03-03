@@ -1,4 +1,4 @@
-class Report < ActiveRecord::Base
+class config.ru < ActiveRecord::Base
     belongs_to :user
 
     # def cast_role(title, description)
