@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <header className="navcontainer">
   <div className="my-app">
-  <h2><span className="title">Emergency</span> Application</h2>
+  <h2><span className="title">parties</span> Application</h2>
   </div>
   <div className="links">
   <NavLink

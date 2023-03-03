@@ -4,11 +4,11 @@ import { Route, Routes } from "react-router-dom";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import About from "./components/About";
-import NewReportForm from "./components/NewReportForm";
-const url ="https://emergencybackend.herokuapp.com"
+import NewPostForm from "./components/NewPostForm";
+// const url ="https://emergencybackend.herokuapp.com"
 function App({params}) {
   // const [isDarkMode,setIsDarkMode]=useState(false)
-  const [report, setReport] = useState([]);
+  const [post, setPost] = useState([]);
   // this will be used for the Dark Mode Toggle feature
   // function handleButton(){
   //   setIsDarkMode((isDarkMode)=> !isDarkMode)
@@ -19,17 +19,17 @@ function App({params}) {
   // fetching
 
   useEffect(() => {
-    fetch(`${url}/reports`)
+    fetch(`${url}/posts`)
       .then((res) => res.json())
-      .then((data) => setReport(data));
+      .then((data) => setPost(data));
   }, []);
 
-  const onAddReport = (addNewReport) => {
-    setReport([addNewReport, ...report]);
+  const onAddPost = (addNewPost) => {
+    setPost([addNewPost, ...post]);
   };
-  const handleDeleteReport = (id) => {
-    const updateReport = report.filter((report) => report.id !== id);
-    setReport(updateReport);
+  const handleDeletePost = (id) => {
+    const updatePost = post.filter((post) => post.id !== id);
+    setPost(updatePost);
   };
 
 
@@ -41,14 +41,14 @@ function App({params}) {
           element={
             <Home
             params={params}
-              report={report}
-              onAddReport={onAddReport}
-              onReportDelete={handleDeleteReport}
+              post={post}
+              onAddPost={onAddPost}
+              onPostDelete={handleDeletePost}
             />
           }
         />
         <Route path="/about" element={<About />} />
-        <Route path="/addreport" element={<NewReportForm  params={params} onAddReport={onAddReport} />} />
+        <Route path="/addpost" element={<NewPostForm  params={params} onAddPost={onAddPost} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/" element={<Login />} />
       </Routes>

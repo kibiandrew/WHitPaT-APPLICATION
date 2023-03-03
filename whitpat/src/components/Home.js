@@ -2,26 +2,26 @@ import React, { useState }from "react";
 import { useParams } from "react-router-dom";
 import NavBar from "./NavBar";
 // import Footer from "./Footer";
-// import Reports from "./Reports";
-import NewReportForm from "./NewReportForm";
-import ReportList from "./ReportList";
+// import Posts from "./";
+import NewPostForm from "./NewPostForm";
+import PostList from "./PostList";
 
 
-const Home = ({ report, onAddReport ,onReportDelete}) => {
+const Home = ({ post, onAddPost ,onPostDelete}) => {
   const [isHide, setIsHide] = useState(false);
   // const [search, setSearch] = useState();
-  const [btnText, setBtnText] = useState("report an emergency");
+  const [btnText, setBtnText] = useState("post a party");
   const [hideButtom, setHideButton] = useState(false);
 
   let params = useParams();
 
 
 
-  const reportdisplay = report.map((repo) => (
-    <ReportList 
+  const postdisplay = post.map((repo) => (
+    <PostList 
     id={repo.id} 
     repo={repo} 
-    onReportDelete={onReportDelete}
+    onPostDelete={onPostDelete}
     params={params}
     />
   ));
@@ -31,7 +31,7 @@ const Home = ({ report, onAddReport ,onReportDelete}) => {
       setIsHide("");
       setBtnText("report an emergency");
     } else {
-      setIsHide(<NewReportForm params={params} onAddReport={onAddReport} />);
+      setIsHide(<NewPostForm params={params} onAddPost={onAddPost} />);
       setBtnText("close");
     }
   };
@@ -39,7 +39,7 @@ const Home = ({ report, onAddReport ,onReportDelete}) => {
   return (
     <div>
     <NavBar />
-    <div className="container-reports">
+    <div className="container-post">
 
     <div className="form_container">{true ? [isHide] : null}</div>
 
@@ -60,15 +60,15 @@ const Home = ({ report, onAddReport ,onReportDelete}) => {
 
         <div className="searchbar">
           <input type="text" className="search"  placeholder="search by title" />
-          <h3 >Reports display</h3>
+          <h3 >posts display</h3>
 
         </div>
 
-        {/* Reports */}
-        <div className="reportsheader">
+        {/* posts*/}
+        <div className="postsheader">
         </div>
 
-        <div className="displayreports">
+        <div className="displayposts">
           <table>
             <thead>
             <tr>
@@ -80,12 +80,12 @@ const Home = ({ report, onAddReport ,onReportDelete}) => {
             </tr>
             </thead>
             <tbody>
-            {reportdisplay}
+            {postdisplay}
             </tbody>
           </table>
           </div>
           </div>
-        {/* Reportscontainerends */}
+        {/* posts containerends */}
       </div>
   );
 };

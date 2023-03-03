@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const NewReportForm = ({ params,onAddReport, hidePopUp,handleupdateClick,id, repo }) => {
+const NewReportForm = ({ params,onAddPost, hidePopUp,handleupdateClick,id, post }) => {
   const [inputData, setInputData] = useState({
     title: "",
     description: "",
@@ -34,7 +34,7 @@ const NewReportForm = ({ params,onAddReport, hidePopUp,handleupdateClick,id, rep
   // }
 
   // console.log(params.id)
-  const URL="https://emergencybackend.herokuapp.com"
+  // const URL="https://emergencybackend.herokuapp.com"
   const handleInputChange = (event) => {
     setInputData({
         ...inputData,[event.target.name]: event.target.value
@@ -62,7 +62,7 @@ const NewReportForm = ({ params,onAddReport, hidePopUp,handleupdateClick,id, rep
         user_id:params.id
     }
 
-    fetch(`${URL}/postreports`,{
+    fetch(`${URL}/postposts`,{
         method: "POST",
         headers: {
             "content-Type": "application/json",
@@ -85,7 +85,7 @@ const NewReportForm = ({ params,onAddReport, hidePopUp,handleupdateClick,id, rep
         <input
           type="text"
           name="title"
-          placeholder="Enter Type of emergency report"
+          placeholder="Enter Type of party"
           onChange={handleInputChange}
           value={inputData.title}
         />
@@ -93,7 +93,7 @@ const NewReportForm = ({ params,onAddReport, hidePopUp,handleupdateClick,id, rep
         <textarea
           type="text"
           name="description"
-          placeholder="Enter Description of emergency report"
+          placeholder="Enter Description of party"
           onChange={handleInputDescription}
           value={inputData.description}
         />
@@ -101,14 +101,14 @@ const NewReportForm = ({ params,onAddReport, hidePopUp,handleupdateClick,id, rep
         <input
           type="text"
           name="location"
-          placeholder="Enter Location of emergency report"
+          placeholder="Enter Location of party"
           onChange={handleInputLocation}
           value={inputData.location}
         />
         <br />
 
         <div className="action_btn">
-        <button type="submit" className="report-btn">
+        <button type="submit" className="party-btn">
           Submit
         </button>
 
@@ -122,4 +122,4 @@ const NewReportForm = ({ params,onAddReport, hidePopUp,handleupdateClick,id, rep
   );
 };
 
-export default NewReportForm;
+export default NewPostForm;

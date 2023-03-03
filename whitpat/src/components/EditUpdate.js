@@ -33,7 +33,7 @@ const EditUpdate = () => {
         <input
           type="text"
           name="title"
-          placeholder="Enter Type of emergency report"
+          placeholder="Enter party post"
         //   onChange={handleInputChange}
         //   value={inputData.title}
         />
@@ -41,7 +41,7 @@ const EditUpdate = () => {
         <textarea
           type="text"
           name="description"
-          placeholder="Enter Description of emergency report"
+          placeholder="Enter Description of party post"
         //   onChange={handleInputDescription}
         //   value={inputData.description}
         />
@@ -49,14 +49,14 @@ const EditUpdate = () => {
         <input
           type="text"
           name="location"
-          placeholder="Enter Location of emergency report"
+          placeholder="Enter Location of party"
         //   onChange={handleInputLocation}
         //   value={inputData.location}
         />
         <br />
 
         <div className="action_btn">
-        <button type="submit" className="report-btn">
+        <button type="submit" className="post-btn">
           Submit
         </button>
 {/* 
